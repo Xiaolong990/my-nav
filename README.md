@@ -1,2 +1,2 @@
 # my-nav
-Research Director
+Research Assitant
