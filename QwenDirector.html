@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学术与效率导航 | 工科博士资源门户</title>
+    <script src="https://image.uc.cn/s/uae/g/3n/mos-production/fontawesome-free-7.1.0-web/js/all.min.js"></script>
+    <script src="https://image.uc.cn/s/uae/g/3n/mos-production/0915/3.4.17.js"></script>
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #10b981;
+            --accent-color: #8b5cf6;
+        }
+        
+        * {
+            scroll-behavior: smooth;
+        }
+        
+        /* 自定义滚动条 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        
+        /* 自定义卡片悬停效果 */
+        .custom-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .custom-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: var(--primary-color);
+        }
+        
+        /* 活动导航项样式 */
+        .nav-item.active {
+            background-color: #eff6ff;
+            border-left: 4px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .nav-item.active {
+                border-left: none;
+                border-bottom: 3px solid var(--primary-color);
+            }
+        }
+        
+        /* 渐变背景 */
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        /* 图标颜色 */
+        .category-icon {
+            color: var(--primary-color);
+        }
+        
+        /* 资源卡片图标 */
+        .resource-icon {
+            color: #64748b;
+        }
+    </style>
+<script>
+!(function(j,a,g){j.__itrace_conf = {bid: 'kt40h0wl-koyh4af8',rel: '', uid: 'd69e473c-77d5-44e0-9abf-dfdc67d4f082' ,  spa: true, plugins:['jserror','interface','perf','resource','flow','blank']};var b = a.createElement("script");var d = a.getElementsByTagName("script")[0];b.type = "text/javascript";b.crossorigin = true;b.async = true;b.onload = function(){j.__itrace && j.__itrace.setReady()};d.parentNode.insertBefore(b,d);b.src = g})(window, document, "https://g.alicdn.com/woodpeckerx/itrace-next/itrace.iife.js")
+</script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- 顶部导航栏 -->
+    <header class="gradient-bg text-white shadow-lg sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                    <i class="fas fa-graduation-cap text-3xl"></i>
+                    <div>
+                        <h1 class="text-2xl font-bold">学术与效率导航</h1>
+                        <p class="text-sm text-blue-100">工科博士一站式资源门户</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm bg-white/20 px-3 py-1 rounded-full">
+                        <i class="fas fa-code mr-1"></i> Python | R | MATLAB
+                    </span>
+                    <span class="text-sm bg-white/20 px-3 py-1 rounded-full">
+                        <i class="fas fa-brain mr-1"></i> AI & ML
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8 flex flex-col lg:flex-row">
+        <!-- 左侧导航栏 -->
+        <aside class="lg:w-1/5 mb-8 lg:mb-0 lg:pr-8">
+            <div class="bg-white rounded-xl shadow-md p-6 sticky top-24">
+                <h2 class="text-lg font-bold text-gray-800 mb-4 flex items-center">
+                    <i class="fas fa-list-alt mr-2 category-icon"></i> 资源分类
+                </h2>
+                <nav class="space-y-2">
+                    <a href="#academic" class="nav-item block px-4 py-3 rounded-lg hover:bg-blue-50 transition-colors flex items-center" onclick="setActiveNav(this)">
+                        <i class="fas fa-book-open mr-3 category-icon"></i> 学术科研
+                    </a>
+                    <a href="#ai-tools" class="nav-item block px-4 py-3 rounded-lg hover:bg-blue-50 transition-colors flex items-center" onclick="setActiveNav(this)">
+                        <i class="fas fa-robot mr-3 category-icon"></i> 网页版AI工具
+                    </a>
+                    <a href="#copyright-free" class="nav-item block px-4 py-3 rounded-lg hover:bg-blue-50 transition-colors flex items-center" onclick="setActiveNav(this)">
+                        <i class="fas fa-images mr-3 category-icon"></i> 无版权素材
+                    </a>
+                    <a href="#office" class="nav-item block px-4 py-3 rounded-lg hover:bg-blue-50 transition-colors flex items-center" onclick="setActiveNav(this)">
+                        <i class="fas fa-briefcase mr-3 category-icon"></i> 办公效率工具
+                    </a>
+                    <a href="#programming" class="nav-item block px-4 py-3 rounded-lg hover:bg-blue-50 transition-colors flex items-center" onclick="setActiveNav(this)">
+                        <i class="fas fa-code mr-3 category-icon"></i> 编程开发资源
+                    </a>
+                    <a href="#news" class="nav-item block px-4 py-3 rounded-lg hover:bg-blue-50 transition-colors flex items-center" onclick="setActiveNav(this)">
+                        <i class="fas fa-newspaper mr-3 category-icon"></i> 权威新闻资讯
+                    </a>
+                    <a href="#courses" class="nav-item block px-4 py-3 rounded-lg hover:bg-blue-50 transition-colors flex items-center" onclick="setActiveNav(this)">
+                        <i class="fas fa-university mr-3 category-icon"></i> 名校公开网课
+                    </a>
+                    <a href="#english" class="nav-item block px-4 py-3 rounded-lg hover:bg-blue-50 transition-colors flex items-center" onclick="setActiveNav(this)">
+                        <i class="fas fa-language mr-3 category-icon"></i> 英语学习网站
+                    </a>
+                    <a href="#video" class="nav-item block px-4 py-3 rounded-lg hover:bg-blue-50 transition-colors flex items-center" onclick="setActiveNav(this)">
+                        <i class="fas fa-film mr-3 category-icon"></i> 影视剧集视频平台
+                    </a>
+                </nav>
+                
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <h3 class="text-sm font-semibold text-gray-700 mb-3">使用提示</h3>
+                    <ul class="text-xs text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-mouse-pointer text-blue-500 mr-2 mt-0.5"></i>
+                            <span>点击资源卡片可直接访问网站</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-star text-yellow-500 mr-2 mt-0.5"></i>
+                            <span>常用网站可添加到浏览器书签</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-mobile-alt text-green-500 mr-2 mt-0.5"></i>
+                            <span>本页面已适配移动设备</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 右侧主内容区 -->
+        <main class="lg:w-4/5">
+            <!-- 学术科研 -->
+            <section id="academic" class="mb-12 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 shadow-sm">
+                <div class="flex items-center mb-6">
+                    <div class="bg-blue-100 p-3 rounded-lg mr-4">
+                        <i class="fas fa-book-open text-2xl text-blue-600"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800">学术科研</h2>
+                        <p class="text-gray-600">涵盖中外主流文献数据库、预印本平台及科研协作与分析工具</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 文献数据库 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-blue-700 flex items-center">
+                            <i class="fas fa-database mr-2"></i> 文献数据库
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://www.cnki.net/" target="_blank" class="flex items-center p-2 hover:bg-blue-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">中国知网 (CNKI)</div>
+                                    <div class="text-sm text-gray-500">国家知识基础设施项目，收录多类型中文学术资源</div>
+                                </div>
+                            </a>
+                            <a href="https://access.clarivate.com/" target="_blank" class="flex items-center p-2 hover:bg-blue-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Web of Science 核心合集</div>
+                                    <div class="text-sm text-gray-500">全球最重要的引文索引数据库之一</div>
+                                </div>
+                            </a>
+                            <a href="https://www.scopus.com/" target="_blank" class="flex items-center p-2 hover:bg-blue-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Scopus</div>
+                                    <div class="text-sm text-gray-500">Elsevier旗下全球最大同行评审文摘与引文数据库</div>
+                                </div>
+                            </a>
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" class="flex items-center p-2 hover:bg-blue-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">PubMed</div>
+                                    <div class="text-sm text-gray-500">美国国立医学图书馆维护的生物医学文献数据库</div>
+                                </div>
+                            </a>
+                            <a href="https://pubscholar.cn/" target="_blank" class="flex items-center p-2 hover:bg-blue-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">PubScholar公益学术平台</div>
+                                    <div class="text-sm text-gray-500">中科院主办，整合1.7亿篇科技文献</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 预印本平台 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-blue-700 flex items-center">
+                            <i class="fas fa-file-upload mr-2"></i> 预印本平台
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://arxiv.org/" target="_blank" class="flex items-center p-2 hover:bg-blue-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">arXiv</div>
+                                    <div class="text-sm text-gray-500">康奈尔大学运营，物理、数学、计算机等领域最大预印本库</div>
+                                </div>
+                            </a>
+                            <a href="https://chinaxiv.org/" target="_blank" class="flex items-center p-2 hover:bg-blue-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">ChinaXiv</div>
+                                    <div class="text-sm text-gray-500">中科院建设的国家级预印本平台</div>
+                                </div>
+                            </a>
+                            <a href="https://zsyyb.cn/" target="_blank" class="flex items-center p-2 hover:bg-blue-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">PSSXiv</div>
+                                    <div class="text-sm text-gray-500">哲学社会科学预印本平台</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 科研协作与智能工具 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-blue-700 flex items-center">
+                            <i class="fas fa-users mr-2"></i> 科研协作与智能工具
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://scholar.google.com/" target="_blank" class="flex items-center p-2 hover:bg-blue-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Google Scholar</div>
+                                    <div class="text-sm text-gray-500">免费学术搜索引擎，支持跨语言检索</div>
+                                </div>
+                            </a>
+                            <a href="https://www.researchgate.net/" target="_blank" class="flex items-center p-2 hover:bg-blue-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">ResearchGate</div>
+                                    <div class="text-sm text-gray-500">科研社交网络平台</div>
+                                </div>
+                            </a>
+                            <a href="https://cn.overleaf.com/" target="_blank" class="flex items-center p-2 hover:bg-blue-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Overleaf</div>
+                                    <div class="text-sm text-gray-500">在线LaTeX编辑器，支持实时协作</div>
+                                </div>
+                            </a>
+                            <a href="https://ai.cnki.net/" target="_blank" class="flex items-center p-2 hover:bg-blue-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">CNKI AI</div>
+                                    <div class="text-sm text-gray-500">提供知识问答、增强检索、智能研读等功能</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 网页版AI工具 -->
+            <section id="ai-tools" class="mb-12 bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 shadow-sm">
+                <div class="flex items-center mb-6">
+                    <div class="bg-purple-100 p-3 rounded-lg mr-4">
+                        <i class="fas fa-robot text-2xl text-purple-600"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800">网页版AI工具</h2>
+                        <p class="text-gray-600">集成主流智能写作、文献理解、研究辅助型AI平台</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 国际AI工具 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-purple-700 flex items-center">
+                            <i class="fas fa-globe-americas mr-2"></i> 国际AI工具
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://chatgpt.com" target="_blank" class="flex items-center p-2 hover:bg-purple-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Chat GPT</div>
+                                    <div class="text-sm text-gray-500">OpenAI推出的对话式AI</div>
+                                </div>
+                            </a>
+                            <a href="https://gemini.google.com" target="_blank" class="flex items-center p-2 hover:bg-purple-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Google Gemini</div>
+                                    <div class="text-sm text-gray-500">谷歌推出的多模态AI助手</div>
+                                </div>
+                            </a>
+                            <a href="https://grok.com" target="_blank" class="flex items-center p-2 hover:bg-purple-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Grok</div>
+                                    <div class="text-sm text-gray-500">xAI公司出品，由马斯克团队开发</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 国内AI工具 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-purple-700 flex items-center">
+                            <i class="fas fa-flag mr-2"></i> 国内AI工具
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://tongyi.aliyun.com/qianwen/" target="_blank" class="flex items-center p-2 hover:bg-purple-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">通义千问</div>
+                                    <div class="text-sm text-gray-500">阿里云推出的大模型产品</div>
+                                </div>
+                            </a>
+                            <a href="https://www.doubao.com" target="_blank" class="flex items-center p-2 hover:bg-purple-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">豆包</div>
+                                    <div class="text-sm text-gray-500">字节跳动推出的一站式AI助手</div>
+                                </div>
+                            </a>
+                            <a href="https://chat.deepseek.com" target="_blank" class="flex items-center p-2 hover:bg-purple-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">DeepSeek</div>
+                                    <div class="text-sm text-gray-500">深度求索公司开发的高性能推理模型</div>
+                                </div>
+                            </a>
+                            <a href="https://kimi.moonshot.cn" target="_blank" class="flex items-center p-2 hover:bg-purple-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Kimi</div>
+                                    <div class="text-sm text-gray-500">擅长处理长文本上下文的大模型</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 科研专用AI -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-purple-700 flex items-center">
+                            <i class="fas fa-flask mr-2"></i> 科研专用AI
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://www.biqiai.cn/" target="_blank" class="flex items-center p-2 hover:bg-purple-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">笔启AI论文</div>
+                                    <div class="text-sm text-gray-500">双核引擎快速生成初稿，支持学科逻辑匹配</div>
+                                </div>
+                            </a>
+                            <a href="https://www.wukongkeyan.com/" target="_blank" class="flex items-center p-2 hover:bg-purple-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">悟空科研写作智能辅助平台</div>
+                                    <div class="text-sm text-gray-500">提供AI辅助阅读、写作等全链条服务</div>
+                                </div>
+                            </a>
+                            <a href="https://www.wispaper.ai/zh" target="_blank" class="flex items-center p-2 hover:bg-purple-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">WisPaper</div>
+                                    <div class="text-sm text-gray-500">复旦大学开发的AI科研助手</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 无版权素材 -->
+            <section id="copyright-free" class="mb-12 bg-gradient-to-r from-green-50 to-teal-50 rounded-2xl p-8 shadow-sm">
+                <div class="flex items-center mb-6">
+                    <div class="bg-green-100 p-3 rounded-lg mr-4">
+                        <i class="fas fa-images text-2xl text-green-600"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800">无版权素材</h2>
+                        <p class="text-gray-600">提供图片、音视频、图标等可自由使用的资源站</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 图片素材 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-green-700 flex items-center">
+                            <i class="fas fa-camera mr-2"></i> 图片素材
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://unsplash.com/" target="_blank" class="flex items-center p-2 hover:bg-green-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Unsplash</div>
+                                    <div class="text-sm text-gray-500">CC0协议，超过700万张高质量摄影作品</div>
+                                </div>
+                            </a>
+                            <a href="https://www.pexels.com/" target="_blank" class="flex items-center p-2 hover:bg-green-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Pexels</div>
+                                    <div class="text-sm text-gray-500">CC0协议，高质量摄影与视频素材</div>
+                                </div>
+                            </a>
+                            <a href="https://pixabay.com/" target="_blank" class="flex items-center p-2 hover:bg-green-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Pixabay</div>
+                                    <div class="text-sm text-gray-500">CC0协议，支持多种格式素材</div>
+                                </div>
+                            </a>
+                            <a href="https://www.canva.cn" target="_blank" class="flex items-center p-2 hover:bg-green-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Canva可画</div>
+                                    <div class="text-sm text-gray-500">设计模板丰富，支持在线协作</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 音频素材 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-green-700 flex items-center">
+                            <i class="fas fa-music mr-2"></i> 音频素材
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://freemusicarchive.org/" target="_blank" class="flex items-center p-2 hover:bg-green-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">FreeMusicArchive</div>
+                                    <div class="text-sm text-gray-500">多种开放许可，音乐风格多样</div>
+                                </div>
+                            </a>
+                            <a href="https://youtube.com/audiolibrary" target="_blank" class="flex items-center p-2 hover:bg-green-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">YouTube Audio Library</div>
+                                    <div class="text-sm text-gray-500">免版税配乐与音效</div>
+                                </div>
+                            </a>
+                            <a href="https://musopen.org" target="_blank" class="flex items-center p-2 hover:bg-green-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Musopen</div>
+                                    <div class="text-sm text-gray-500">公共领域古典音乐与乐谱</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 图标与设计 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-green-700 flex items-center">
+                            <i class="fas fa-icons mr-2"></i> 图标与设计
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://www.iconfont.cn" target="_blank" class="flex items-center p-2 hover:bg-green-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Iconfont 阿里巴巴图标库</div>
+                                    <div class="text-sm text-gray-500">免费商用，国内访问快</div>
+                                </div>
+                            </a>
+                            <a href="https://www.flaticon.com" target="_blank" class="flex items-center p-2 hover:bg-green-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Flaticon</div>
+                                    <div class="text-sm text-gray-500">560万+矢量图标资源</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 办公效率工具 -->
+            <section id="office" class="mb-12 bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-8 shadow-sm">
+                <div class="flex items-center mb-6">
+                    <div class="bg-amber-100 p-3 rounded-lg mr-4">
+                        <i class="fas fa-briefcase text-2xl text-amber-600"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800">办公效率工具</h2>
+                        <p class="text-gray-600">精选任务管理、文档协作与项目规划平台及常用格式转换工具</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 笔记与协作 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-amber-700 flex items-center">
+                            <i class="fas fa-sticky-note mr-2"></i> 笔记与协作
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://note.youdao.com/" target="_blank" class="flex items-center p-2 hover:bg-amber-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">有道云笔记</div>
+                                    <div class="text-sm text-gray-500">支持多端同步、团队共享、OCR识别</div>
+                                </div>
+                            </a>
+                            <a href="https://www.notion.so/" target="_blank" class="flex items-center p-2 hover:bg-amber-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Notion</div>
+                                    <div class="text-sm text-gray-500">极致灵活性的块编辑系统</div>
+                                </div>
+                            </a>
+                            <a href="https://ai.wps.cn" target="_blank" class="flex items-center p-2 hover:bg-amber-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">WPS AI</div>
+                                    <div class="text-sm text-gray-500">内嵌于WPS Office，支持智能生成</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- PDF转换 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-amber-700 flex items-center">
+                            <i class="fas fa-file-pdf mr-2"></i> PDF转换
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://www.smallpdf.com.cn/zh-cn/" target="_blank" class="flex items-center p-2 hover:bg-amber-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Smallpdf 中文版</div>
+                                    <div class="text-sm text-gray-500">PDF压缩、转换、合并等一站式处理</div>
+                                </div>
+                            </a>
+                            <a href="https://lightpdf.cn/" target="_blank" class="flex items-center p-2 hover:bg-amber-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">LightPDF</div>
+                                    <div class="text-sm text-gray-500">支持PDF转Word、Excel、PPT等</div>
+                                </div>
+                            </a>
+                            <a href="https://pdf.wps.cn/pdf2excel" target="_blank" class="flex items-center p-2 hover:bg-amber-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">WPS PDF转换器在线版</div>
+                                    <div class="text-sm text-gray-500">PDF与Office文档互转，速度快</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 图片与音频转换 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-amber-700 flex items-center">
+                            <i class="fas fa-exchange-alt mr-2"></i> 格式转换
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://convertio.co/zh/" target="_blank" class="flex items-center p-2 hover:bg-amber-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Convertio</div>
+                                    <div class="text-sm text-gray-500">支持超过300种格式转换</div>
+                                </div>
+                            </a>
+                            <a href="https://www.iloveimg.com/zh-cn/image-converter" target="_blank" class="flex items-center p-2 hover:bg-amber-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">iLoveIMG</div>
+                                    <div class="text-sm text-gray-500">专用于图片格式转换，界面直观</div>
+                                </div>
+                            </a>
+                            <a href="https://online-audio-converter.com/" target="_blank" class="flex items-center p-2 hover:bg-amber-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Online Audio Converter</div>
+                                    <div class="text-sm text-gray-500">支持MP3、WAV、OGG等格式转换</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 编程开发资源 -->
+            <section id="programming" class="mb-12 bg-gradient-to-r from-red-50 to-pink-50 rounded-2xl p-8 shadow-sm">
+                <div class="flex items-center mb-6">
+                    <div class="bg-red-100 p-3 rounded-lg mr-4">
+                        <i class="fas fa-code text-2xl text-red-600"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800">编程开发资源</h2>
+                        <p class="text-gray-600">聚焦Python、R、Matlab相关学习与实战平台</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Python -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-red-700 flex items-center">
+                            <i class="fab fa-python mr-2"></i> Python
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://www.python.org" target="_blank" class="flex items-center p-2 hover:bg-red-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Python官方网站</div>
+                                    <div class="text-sm text-gray-500">官方主站，提供下载、文档与社区支持</div>
+                                </div>
+                            </a>
+                            <a href="https://docs.python.org/3/" target="_blank" class="flex items-center p-2 hover:bg-red-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Python官方文档</div>
+                                    <div class="text-sm text-gray-500">最权威的语言参考手册与教程入口</div>
+                                </div>
+                            </a>
+                            <a href="https://leetcode.cn/about" target="_blank" class="flex items-center p-2 hover:bg-red-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">LeetCode</div>
+                                    <div class="text-sm text-gray-500">编程刷题平台，支持Python算法练习</div>
+                                </div>
+                            </a>
+                            <a href="https://www.kaggle.com" target="_blank" class="flex items-center p-2 hover:bg-red-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Kaggle</div>
+                                    <div class="text-sm text-gray-500">数据科学竞赛平台，提供真实数据集</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- R语言 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-red-700 flex items-center">
+                            <i class="fas fa-chart-line mr-2"></i> R语言
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://www.r-project.org" target="_blank" class="flex items-center p-2 hover:bg-red-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">R项目官网</div>
+                                    <div class="text-sm text-gray-500">R语言主站，提供软件下载与官方文档</div>
+                                </div>
+                            </a>
+                            <a href="https://mirrors.tuna.tsinghua.edu.cn/CRAN/" target="_blank" class="flex items-center p-2 hover:bg-red-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">CRAN镜像站点（清华）</div>
+                                    <div class="text-sm text-gray-500">国内高速下载源，安装R与扩展包必备</div>
+                                </div>
+                            </a>
+                            <a href="https://www.rstudio.com" target="_blank" class="flex items-center p-2 hover:bg-red-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">RStudio官网</div>
+                                    <div class="text-sm text-gray-500">R专属IDE，提供桌面与服务器版本</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- MATLAB -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-red-700 flex items-center">
+                            <i class="fas fa-calculator mr-2"></i> MATLAB
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://cn.mathworks.com" target="_blank" class="flex items-center p-2 hover:bg-red-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">MathWorks中国</div>
+                                    <div class="text-sm text-gray-500">MATLAB中国区官网，提供本地化服务</div>
+                                </div>
+                            </a>
+                            <a href="https://matlab.mathworks.com" target="_blank" class="flex items-center p-2 hover:bg-red-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">MATLAB Online（网页版）</div>
+                                    <div class="text-sm text-gray-500">浏览器即可运行MATLAB，无需本地安装</div>
+                                </div>
+                            </a>
+                            <a href="https://jp.mathworks.com/matlabcentral/content/about.html" target="_blank" class="flex items-center p-2 hover:bg-red-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">MATLAB Central</div>
+                                    <div class="text-sm text-gray-500">用户社区平台，分享代码与解决方案</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 权威新闻资讯 -->
+            <section id="news" class="mb-12 bg-gradient-to-r from-cyan-50 to-blue-50 rounded-2xl p-8 shadow-sm">
+                <div class="flex items-center mb-6">
+                    <div class="bg-cyan-100 p-3 rounded-lg mr-4">
+                        <i class="fas fa-newspaper text-2xl text-cyan-600"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800">权威新闻资讯</h2>
+                        <p class="text-gray-600">聚合科技、工程与学术前沿动态来源，保持信息敏感度</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 国际科技新闻 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-cyan-700 flex items-center">
+                            <i class="fas fa-globe mr-2"></i> 国际科技新闻
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://www.nature.com" target="_blank" class="flex items-center p-2 hover:bg-cyan-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Nature News</div>
+                                    <div class="text-sm text-gray-500">《自然》期刊新闻板块，报道全球顶级科研进展</div>
+                                </div>
+                            </a>
+                            <a href="http://www.sciencedaily.com/" target="_blank" class="flex items-center p-2 hover:bg-cyan-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">ScienceDaily</div>
+                                    <div class="text-sm text-gray-500">美国最受欢迎的科学新闻网站之一</div>
+                                </div>
+                            </a>
+                            <a href="https://spectrum.ieee.org/" target="_blank" class="flex items-center p-2 hover:bg-cyan-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">IEEE Spectrum</div>
+                                    <div class="text-sm text-gray-500">IEEE旗舰杂志，聚焦电气电子、机器人、AI等领域</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 国内科技动态 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-cyan-700 flex items-center">
+                            <i class="fas fa-building mr-2"></i> 国内科技动态
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://m.caixin.com/m/tech/" target="_blank" class="flex items-center p-2 hover:bg-cyan-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">财新网科技频道</div>
+                                    <div class="text-sm text-gray-500">报道人工智能、芯片、通信等中国科技产业动态</div>
+                                </div>
+                            </a>
+                            <a href="https://news.sciencenet.cn/" target="_blank" class="flex items-center p-2 hover:bg-cyan-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">中国科学院国家科学图书馆科技新闻聚合系统</div>
+                                    <div class="text-sm text-gray-500">自动聚合世界知名科研机构发布的科技新闻</div>
+                                </div>
+                            </a>
+                            <a href="http://www.ckcest.cn/" target="_blank" class="flex items-center p-2 hover:bg-cyan-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">中国工程科技知识中心</div>
+                                    <div class="text-sm text-gray-500">整合工程科技动态、政策、院士观点等内容</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- AI资讯聚合 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-cyan-700 flex items-center">
+                            <i class="fas fa-brain mr-2"></i> AI资讯聚合
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://radarai.ai/" target="_blank" class="flex items-center p-2 hover:bg-cyan-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">RadarAI</div>
+                                    <div class="text-sm text-gray-500">聚合GitHub、Hugging Face等源头信息</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 名校公开网课 -->
+            <section id="courses" class="mb-12 bg-gradient-to-r from-violet-50 to-purple-50 rounded-2xl p-8 shadow-sm">
+                <div class="flex items-center mb-6">
+                    <div class="bg-violet-100 p-3 rounded-lg mr-4">
+                        <i class="fas fa-university text-2xl text-violet-600"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800">名校公开网课</h2>
+                        <p class="text-gray-600">收录国内外顶尖高校课程平台，支持持续深造</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 国际MOOC平台 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-violet-700 flex items-center">
+                            <i class="fas fa-graduation-cap mr-2"></i> 国际MOOC平台
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://www.coursera.org" target="_blank" class="flex items-center p-2 hover:bg-violet-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Coursera</div>
+                                    <div class="text-sm text-gray-500">与斯坦福、密歇根等300余所高校及企业合作</div>
+                                </div>
+                            </a>
+                            <a href="https://www.edx.org" target="_blank" class="flex items-center p-2 hover:bg-violet-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">edX</div>
+                                    <div class="text-sm text-gray-500">麻省理工学院与哈佛大学联合创办的非营利MOOC平台</div>
+                                </div>
+                            </a>
+                            <a href="https://ocw.mit.edu" target="_blank" class="flex items-center p-2 hover:bg-violet-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">MIT OpenCourseWare</div>
+                                    <div class="text-sm text-gray-500">提供麻省理工学院2466门课程资料，完全免费</div>
+                                </div>
+                            </a>
+                            <a href="https://pll.harvard.edu/" target="_blank" class="flex items-center p-2 hover:bg-violet-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">哈佛大学在线课程</div>
+                                    <div class="text-sm text-gray-500">哈佛官方平台，提供500余门课程，90%可免费旁听</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 国内公开课平台 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-violet-700 flex items-center">
+                            <i class="fas fa-school mr-2"></i> 国内公开课平台
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://www.icourse163.org" target="_blank" class="flex items-center p-2 hover:bg-violet-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">中国大学MOOC（爱课程）</div>
+                                    <div class="text-sm text-gray-500">承接国家精品课程任务，承载超2.1万门课程</div>
+                                </div>
+                            </a>
+                            <a href="https://www.xuetangx.com" target="_blank" class="flex items-center p-2 hover:bg-violet-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">学堂在线</div>
+                                    <div class="text-sm text-gray-500">清华大学发起的慕课平台，教育部认可的研究交流平台</div>
+                                </div>
+                            </a>
+                            <a href="https://higher.smartedu.cn/" target="_blank" class="flex items-center p-2 hover:bg-violet-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">国家高等教育智慧教育平台</div>
+                                    <div class="text-sm text-gray-500">教育部主办，首批上线2万门优质课程</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 综合平台 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-violet-700 flex items-center">
+                            <i class="fas fa-tv mr-2"></i> 综合平台
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://open.163.com/" target="_blank" class="flex items-center p-2 hover:bg-violet-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">网易公开课</div>
+                                    <div class="text-sm text-gray-500">汇聚哈佛、牛津、耶鲁等世界名校公开课资源</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 英语学习网站 -->
+            <section id="english" class="mb-12 bg-gradient-to-r from-emerald-50 to-green-50 rounded-2xl p-8 shadow-sm">
+                <div class="flex items-center mb-6">
+                    <div class="bg-emerald-100 p-3 rounded-lg mr-4">
+                        <i class="fas fa-language text-2xl text-emerald-600"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800">英语学习网站</h2>
+                        <p class="text-gray-600">涵盖听说读写全方位训练资源，助力语言提升</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 听力与口语 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-emerald-700 flex items-center">
+                            <i class="fas fa-headphones mr-2"></i> 听力与口语
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://www.bbc.co.uk/learningenglish" target="_blank" class="flex items-center p-2 hover:bg-emerald-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">BBC Learning English</div>
+                                    <div class="text-sm text-gray-500">提供地道英式发音材料与情景对话练习</div>
+                                </div>
+                            </a>
+                            <a href="https://www.ted.com/talks" target="_blank" class="flex items-center p-2 hover:bg-emerald-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">TED Talks</div>
+                                    <div class="text-sm text-gray-500">观看各领域专家演讲，锻炼听力与批判性思维</div>
+                                </div>
+                            </a>
+                            <a href="https://learningenglish.voanews.com" target="_blank" class="flex items-center p-2 hover:bg-emerald-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">VOA Learning English</div>
+                                    <div class="text-sm text-gray-500">美国之音慢速英语节目，适合初级到中级学习者</div>
+                                </div>
+                            </a>
+                            <a href="https://youglish.com" target="_blank" class="flex items-center p-2 hover:bg-emerald-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">YouGlish</div>
+                                    <div class="text-sm text-gray-500">输入关键词即可查找YouTube中真实语境发音</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 阅读与写作 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-emerald-700 flex items-center">
+                            <i class="fas fa-book-reader mr-2"></i> 阅读与写作
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://owl.purdue.edu" target="_blank" class="flex items-center p-2 hover:bg-emerald-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Purue OWL</div>
+                                    <div class="text-sm text-gray-500">普渡大学官方英文写作指导网站，权威资源</div>
+                                </div>
+                            </a>
+                            <a href="https://www.phrasebank.manchester.ac.uk/" target="_blank" class="flex items-center p-2 hover:bg-emerald-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Academic Phrasebank</div>
+                                    <div class="text-sm text-gray-500">曼彻斯特大学学术论文标准句型模板库</div>
+                                </div>
+                            </a>
+                            <a href="https://www.grammarly.com" target="_blank" class="flex items-center p-2 hover:bg-emerald-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Grammarly</div>
+                                    <div class="text-sm text-gray-500">AI语法检查与改写润色工具，提升书面表达质量</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 综合学习平台 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-emerald-700 flex items-center">
+                            <i class="fas fa-gamepad mr-2"></i> 综合学习平台
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://www.duolingo.com" target="_blank" class="flex items-center p-2 hover:bg-emerald-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Duolingo</div>
+                                    <div class="text-sm text-gray-500">游戏化学习路径，适合零基础入门与词汇积累</div>
+                                </div>
+                            </a>
+                            <a href="https://www.52met.com" target="_blank" class="flex items-center p-2 hover:bg-emerald-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">MET世界语言学习馆</div>
+                                    <div class="text-sm text-gray-500">收录四六级、雅思、托福听力真题与专项训练</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 影视剧集视频平台 -->
+            <section id="video" class="mb-12 bg-gradient-to-r from-rose-50 to-pink-50 rounded-2xl p-8 shadow-sm">
+                <div class="flex items-center mb-6">
+                    <div class="bg-rose-100 p-3 rounded-lg mr-4">
+                        <i class="fas fa-film text-2xl text-rose-600"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800">影视剧集视频平台</h2>
+                        <p class="text-gray-600">推荐高质量影视内容站点，兼顾休闲放松与语言学习</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 国内平台 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-rose-700 flex items-center">
+                            <i class="fas fa-home mr-2"></i> 国内平台
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://v.qq.com" target="_blank" class="flex items-center p-2 hover:bg-rose-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">腾讯视频</div>
+                                    <div class="text-sm text-gray-500">新剧前1-2集试看，经典剧集长期免费全集播放</div>
+                                </div>
+                            </a>
+                            <a href="https://www.iqiyi.com" target="_blank" class="flex items-center p-2 hover:bg-rose-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">爱奇艺</div>
+                                    <div class="text-sm text-gray-500">"免费专区"明确分类，爆款剧播完后开放全集免费</div>
+                                </div>
+                            </a>
+                            <a href="https://www.bilibili.com" target="_blank" class="flex items-center p-2 hover:bg-rose-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">哔哩哔哩 (Bilibili)</div>
+                                    <div class="text-sm text-gray-500">引进正版番剧、纪录片、影视剧，部分内容免费</div>
+                                </div>
+                            </a>
+                            <a href="https://www.cctv.com" target="_blank" class="flex items-center p-2 hover:bg-rose-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">央视网 (CCTV)</div>
+                                    <div class="text-sm text-gray-500">提供央视自制节目、纪录片、电视剧、赛事直播，完全免费</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 国际平台 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-rose-700 flex items-center">
+                            <i class="fas fa-globe mr-2"></i> 国际平台
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://www.tubi.tv" target="_blank" class="flex items-center p-2 hover:bg-rose-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Tubi</div>
+                                    <div class="text-sm text-gray-500">广告支持（每30分钟1-2次），全球覆盖</div>
+                                </div>
+                            </a>
+                            <a href="https://pluto.tv" target="_blank" class="flex items-center p-2 hover:bg-rose-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Pluto TV</div>
+                                    <div class="text-sm text-gray-500">派拉蒙旗下，提供直播频道与点播内容</div>
+                                </div>
+                            </a>
+                            <a href="https://www.viki.com" target="_blank" class="flex items-center p-2 hover:bg-rose-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">Viki (Rakuten Viki)</div>
+                                    <div class="text-sm text-gray-500">提供韩剧、华语剧，全球志愿者翻译多语言字幕</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 特色平台 -->
+                    <div class="custom-card bg-white rounded-xl p-5">
+                        <h3 class="font-bold text-lg mb-3 text-rose-700 flex items-center">
+                            <i class="fas fa-star mr-2"></i> 特色平台
+                        </h3>
+                        <div class="space-y-3">
+                            <a href="https://www.mgtv.com" target="_blank" class="flex items-center p-2 hover:bg-rose-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">芒果TV</div>
+                                    <div class="text-sm text-gray-500">自制综艺前三集免费，热播剧一周后延迟免费追更</div>
+                                </div>
+                            </a>
+                            <a href="https://www.1905.com" target="_blank" class="flex items-center p-2 hover:bg-rose-50 rounded-lg transition-colors">
+                                <i class="fas fa-external-link-alt resource-icon mr-3"></i>
+                                <div>
+                                    <div class="font-medium">1905电影网</div>
+                                    <div class="text-sm text-gray-500">电影频道主办，多数影片高清免费播放</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-gray-300 py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center space-x-2 mb-3">
+                        <i class="fas fa-graduation-cap text-xl text-blue-400"></i>
+                        <h3 class="text-xl font-bold text-white">学术与效率导航</h3>
+                    </div>
+                    <p class="text-sm max-w-md">专为工科博士研究生打造的一站式资源门户，涵盖学术科研、AI工具、编程开发、英语学习等九大领域，助力科研效率提升与个人成长。</p>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <div class="mb-4">
+                        <span class="text-sm bg-gray-700 px-3 py-1 rounded-full mr-2">
+                            <i class="fas fa-user-graduate mr-1"></i> 工科博士
+                        </span>
+                        <span class="text-sm bg-gray-700 px-3 py-1 rounded-full">
+                            <i class="fas fa-calendar-alt mr-1"></i> 2026-04-06
+                        </span>
+                    </div>
+                    <p class="text-sm text-gray-400">
+                        本内容由AI生成，可能存在错误或不准确之处。请在使用前自行核实信息的准确性。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-400">
+                <p>© 2026 学术与效率导航 | 最后更新: 2026年4月6日 | 共收录180+优质资源链接</p>
+                <p class="mt-2">页面设计: 现代化卡片布局 | 响应式设计 | 左侧分类导航栏 | 悬停动效</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 设置活动导航项
+        function setActiveNav(element) {
+            // 移除所有导航项的active类
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // 为当前点击的导航项添加active类
+            element.classList.add('active');
+            
+            // 平滑滚动到目标区域
+            const targetId = element.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // 页面加载时根据滚动位置设置活动导航项
+        function updateActiveNavOnScroll() {
+            const sections = document.querySelectorAll('section[id]');
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${currentSection}`) {
+                    item.classList.add('active');
+                }
+            });
+        }
+        
+        // 监听滚动事件
+        window.addEventListener('scroll', updateActiveNavOnScroll);
+        
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 设置第一个导航项为活动状态
+            document.querySelector('.nav-item').classList.add('active');
+            
+            // 为所有资源链接添加图标动画
+            document.querySelectorAll('a[target="_blank"]').forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('.fa-external-link-alt');
+                    if (icon) {
+                        icon.style.transform = 'rotate(15deg) scale(1.2)';
+                        icon.style.transition = 'transform 0.2s ease';
+                    }
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('.fa-external-link-alt');
+                    if (icon) {
+                        icon.style.transform = 'rotate(0deg) scale(1)';
+                    }
+                });
+            });
+            
+            // 显示页面加载完成提示
+            console.log('学术与效率导航页面加载完成！');
+            console.log('资源分类: 9类 | 资源链接: 180+ | 最后更新: 2026-04-06');
+        });
+        
+        // 移动设备导航栏优化
+        function handleMobileNav() {
+            const navItems = document.querySelectorAll('.nav-item');
+            if (window.innerWidth < 768) {
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+                // 移动端默认不设置活动项，由滚动决定
+            }
+        }
+        
+        // 监听窗口大小变化
+        window.addEventListener('resize', handleMobileNav);
+        // 初始化
+        handleMobileNav();
+    </script>
+</body>
+</html>
